@@ -1,0 +1,32 @@
+#signup_form_container{
+display:flex;
+justify-content:center;
+align-items:center;
+position:relative;
+top:20px;
+}
+
+.signup_form{
+width:200px;
+height:220px;
+border:1px solid black;
+padding:10px;
+}
+
+.signup_form_group{
+border:1px solid black;
+margin-bottom:5px;
+}
+.signup_form_submit_button_container{
+position:relative;
+left:70px;
+top:10px;
+
+}
+.signup_form_submit_button{
+width:55px;
+height:25px;
+background-color:#24a0ed;
+border:none;
+color: #F5F5F5;
+}

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Assignment list</title>
+    <link th:href="@{/css/assignment.css}" href="/css/assignment.css" rel="stylesheet"/>
+</head>
+<body>
+
+<div>
+    <button>create new assignment</button>
+    <input type="text"/>
+
+</div>
+
+<div class="assignments">
+
+    <div th:each="assignment:${assignments}" class="assignment">
+        <h1 th:text="${assignment.title}"></h1>
+        <hr id="assignment_line"/>
+        <p> Assignment id:<span th:text="${assignment.assignmentId}"> </span></p>
+        <p th:text="${assignment.startDate}"></p>
+        <p th:text="${assignment.dueDate}"></p>
+        <p th:text="${assignment.type}"></p>
+        <div class="assignment_button">
+            <button type="button" id="assignment_update" class="assignment_button_group">update</button>
+            <button type="button" id="assignment_delete" class="assignment_button_group">delete</button>
+        </div>
+    </div>
+</div>
+</body>
+</html>

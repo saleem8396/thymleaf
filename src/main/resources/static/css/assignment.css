@@ -1,0 +1,38 @@
+
+.assignments{
+display : flex;
+justify-content: space-around;
+}
+.assignment{
+border: 2px solid black;
+width: 200px;
+text-align:center;
+ border-radius: 4px;
+}
+#assignment_line{
+position:relative;
+bottom:8px;
+
+}
+
+/*            assignment button                  */
+
+.assignment_button{
+display:flex;
+justify-content:space-around;
+margin-bottom:5px;
+
+}
+.assignment_button_group{
+border: none;
+border-radius:2px;
+height:20px;
+color: #F5F5F5;
+}
+
+#assignment_delete{
+background-color:#D11A2A;
+}
+#assignment_update{
+background-color:#24a0ed
+}

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en"  xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>create user</title>
+ <link th:href="@{/css/userCreate.css}" href="/css/userCreate" rel="stylesheet"/>
+</head>
+<body>
+<div id="signup_form_container">
+    <form class="signup_form" method="post">
+
+        <div>
+        <label for="form_firstname"> First Name</label>
+        <input type="text" name="firstname" id="form_firstname" class="signup_form_group">
+        </div>
+        <div>
+        <label for="form_lastname"> Last Name</label>
+        <input type="text" name="lastname" id="form_lastname" class="signup_form_group">
+        </div>
+            <div>
+        <label for="form_password"> Password</label>
+        <input type="password" name="password" id="form_password" class="signup_form_group">
+            </div>
+                <div>
+        <label for="form_confirm_password">Confirm Password</label>
+        <input type="password" name="confirmpassword" id="form_confirm_password" class="signup_form_group">
+                </div>
+                    <div class="signup_form_submit_button_container">
+        <button type="submit" class="signup_form_submit_button">submit</button>
+                    </div>
+    </form>
+
+
+</div>
+
+<script th:src="@{/js/userCreate.js}"  src="/js/userCreate.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,21 @@
+body{
+font-family:'Arial',sans-serif;
+}
+#body_header{
+height:25vh;
+display:flex;
+justify-content:center;
+align-items:center;
+}
+.main_button_group{
+height:30px;
+width:100px;
+border-radius:2px;
+border:none;
+background-color:#24a0ed;
+color: #F5F5F5;
+}
+
+#create_user_button{
+margin-right:20px;
+}
