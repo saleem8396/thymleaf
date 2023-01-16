@@ -25,7 +25,7 @@ public class UserServiceImp implements UserService {
     @Override
     public void createUser(UserModel userModel) {
         User user = new User();
-
+        System.out.println(userModel);
         user.setUserName(userModel.getFirstname() + " " + userModel.getLastName());
         user.setFirstname(userModel.getFirstname());
         user.setLastName(userModel.getLastName());
@@ -36,6 +36,7 @@ public class UserServiceImp implements UserService {
     @Override
     public void createAssignment(AssignmentModel assignment) throws ParseException {
 
+        System.out.println(assignment);
         SimpleDateFormat format = new SimpleDateFormat("dd-MM-yyyy");
         Assignment assignment1 = new Assignment();
         assignment1.setTitle(assignment.getTitle());
@@ -68,13 +69,13 @@ public class UserServiceImp implements UserService {
                 jsonUserId.removeAll(user);
                 System.out.println(jsonUserId);
                 for (Long id : jsonUserId) {
-                    if(userRepository.existsById(id)){
+                    if (userRepository.existsById(id)) {
 
-                        assignmentRepository.updateUserAssignment(uniqueCheck.getAssignmentId(),id);
+                        assignmentRepository.updateUserAssignment(uniqueCheck.getAssignmentId(), id);
                     }
                 }
             }
-//        assignment1.setUserList(assignment.getUserList());
+
 
         }
     }
@@ -83,9 +84,6 @@ public class UserServiceImp implements UserService {
     public List<Assignment> getAllAssignments() {
 
         List<Assignment> assignmentList = assignmentRepository.findAll();
-       for(Assignment assignment:assignmentList)
-            System.out.println(assignment);
-
         return assignmentList;
     }
 
@@ -97,6 +95,7 @@ public class UserServiceImp implements UserService {
 
     @Override
     public void updateAssignment(Long id, AssignmentModel assignmentModel) {
+        System.out.println(assignmentModel);
         UserModel userModel = new UserModel();
         Assignment assignment = assignmentRepository.findById(id).get();
         SimpleDateFormat format = new SimpleDateFormat("dd-MM-yyyy");
@@ -120,19 +119,6 @@ public class UserServiceImp implements UserService {
 
             assignment.setType(assignmentModel.getType());
         }
-//        if(Objects.nonNull(assignmentModel.getUser())) {
-//            if (Objects.nonNull(assignmentModel.getUser().getFirstname()) && !"".equalsIgnoreCase(assignmentModel.getUser().getFirstname())) {
-//
-////                userModel.setUserName(assignmentModel.getUser().getFirstname());
-//         assignment.getUser().setFirstname(assignmentModel.getUser().getFirstname());
-//
-//            }
-//            if (Objects.nonNull(assignmentModel.getUser().getLastName()) && !"".equalsIgnoreCase(assignmentModel.getUser().getLastName())) {
-//
-//                userModel.setLastName(assignmentModel.getUser().getLastName());
-//            }
-//            assignment.getUser().setUserName(assignment.getUser().getUserName() + " " + assignment.getUser().getLastName());
-//        }
 
         assignmentRepository.save(assignment);
     }
@@ -143,10 +129,25 @@ public class UserServiceImp implements UserService {
     }
 
     @Override
-    public   List<Assignment> getAssignmentOfUser(Long id) {
+    public List<Assignment> getAssignmentOfUser(Long id) {
 
-    User userAssignment= userRepository.getAssignmentOfUserFromDataBase(id);
-    List<Assignment> assignmentList=userAssignment.getAssignmentList();
-    return assignmentList;
+        User userAssignment = userRepository.getAssignmentOfUserFromDataBase(id);
+        List<Assignment> assignmentList = userAssignment.getAssignmentList();
+        return assignmentList;
+    }
+
+    @Override
+    public List<User> getUsers() {
+        return userRepository.findAll();
+    }
+
+    @Override
+    public void deleteUserById(Long id) {
+        userRepository.deleteById(id);
+    }
+
+    @Override
+    public void addUserForAssignment(Long userID, Long assignId) {
+        assignmentRepository.updateUserAssignment(assignId, userID);
     }
 }

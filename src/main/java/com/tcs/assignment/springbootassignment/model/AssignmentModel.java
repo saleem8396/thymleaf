@@ -16,12 +16,12 @@ public class AssignmentModel {
     private String title;
     private Date dueDate;
     private Date startDate;
-    @Pattern(regexp = "(?i)^(HOMEWORK|QUIZ|MCQ)$")
+    @Pattern(regexp = "(?i)^(HOME WORK|QUIZ|MCQ)$")
     private String type;
     private List<User> userList;
 
-    public void addUser(User user){
-        if(userList==null) userList=new ArrayList<>();
+    public void addUser(User user) {
+        if (userList == null) userList = new ArrayList<>();
         userList.add(user);
 
     }

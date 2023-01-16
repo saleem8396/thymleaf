@@ -20,7 +20,7 @@ import java.util.List;
 @Table(
         uniqueConstraints = @UniqueConstraint(
                 name = "unique_title_type",
-                columnNames ={ "title", "type" }
+                columnNames = {"title", "type"}
         )
 )
 public class Assignment {
@@ -34,8 +34,8 @@ public class Assignment {
     @NotNull
     private String startDate;
     @NotNull
-    private String type ;
-//    @OneToOne(
+    private String type;
+    //    @OneToOne(
 //            fetch = FetchType.EAGER
 //    )
 //    @JoinColumn(
@@ -44,9 +44,11 @@ public class Assignment {
 //    )
     @ManyToMany(
             fetch = FetchType.LAZY
+
+
     )
     @JoinTable(
-            name="user_assignment_map",
+            name = "user_assignment_map",
             joinColumns = @JoinColumn(
                     name = "assignment_id",
                     referencedColumnName = "assignmentId"
@@ -59,8 +61,8 @@ public class Assignment {
     @JsonIgnore
     private List<User> userList;
 
-    public void addUserList(User user){
-        if(userList==null) userList =new ArrayList<>();
+    public void addUserList(User user) {
+        if (userList == null) userList = new ArrayList<>();
         userList.add(user);
     }
 

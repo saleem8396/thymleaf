@@ -22,4 +22,10 @@ public interface UserService {
     void deleteAssignment(Long id);
 
     List<Assignment> getAssignmentOfUser(Long id);
+
+    List<User> getUsers();
+
+    void deleteUserById(Long id);
+
+    void addUserForAssignment(Long userID, Long assignId);
 }

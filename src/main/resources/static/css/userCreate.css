@@ -1,5 +1,7 @@
+/*user form styling */
+
 #signup_form_container{
-display:flex;
+display:none;
 justify-content:center;
 align-items:center;
 position:relative;
@@ -9,8 +11,11 @@ top:20px;
 .signup_form{
 width:200px;
 height:220px;
-border:1px solid black;
-padding:10px;
+border-radius:2px;
+border:2px solid black;
+padding-top:20px;
+padding-left:20px;
+padding-bottom:20px;
 }
 
 .signup_form_group{
@@ -18,15 +23,38 @@ border:1px solid black;
 margin-bottom:5px;
 }
 .signup_form_submit_button_container{
-position:relative;
-left:70px;
-top:10px;
-
+margin-top:5px;
+display:flex;
+justify-content:space-around;
 }
 .signup_form_submit_button{
 width:55px;
 height:25px;
-background-color:#24a0ed;
-border:none;
-color: #F5F5F5;
+
+}
+.signup_form_close_button{
+width:55px;
+height:25px;
+}
+
+/* user card styling */
+
+.user_card_container{
+display:flex;
+flex-wrap: wrap;
+justify-content:space-around;
+
+}
+.user_card{
+border: 2px solid black;
+ overflow: hidden;
+margin:15px;
+width: 200px;
+text-align:center;
+ border-radius: 4px;
+}
+
+/* user manipulation button */
+#user_delete_container{
+margin-bottom:10px;
 }

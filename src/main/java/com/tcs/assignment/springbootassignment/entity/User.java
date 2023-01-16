@@ -23,8 +23,9 @@ public class User {
     @JsonIgnore
     private String password;
     @ManyToMany(
-            mappedBy = "userList"
+            mappedBy = "userList",
+            cascade = CascadeType.REMOVE
     )
     @JsonIgnore
-    private List<Assignment> assignmentList=new ArrayList<>();
+    private List<Assignment> assignmentList = new ArrayList<>();
 }

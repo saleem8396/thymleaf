@@ -1,10 +1,14 @@
 
 .assignments{
 display : flex;
+ flex-wrap: wrap;
 justify-content: space-around;
+
 }
 .assignment{
 border: 2px solid black;
+ overflow: hidden;
+margin:15px;
 width: 200px;
 text-align:center;
  border-radius: 4px;
@@ -14,25 +18,43 @@ position:relative;
 bottom:8px;
 
 }
+/* update form of assignment */
 
+.assignment_execution_type ,.assignment_execution_type_hr {
+position:relative;
+bottom:7px;
+}
+#update_assignment_container{
+display:none;
+border:2px solid black;
+border-radius:2px;
+padding:15px;
+}
+#update_container_flex{
+display:flex;
+justify-content:center;
+align-items:center;
+margin-top:20px;
+}
+.update_field_container{
+margin:8px;
+
+}
+.update_assignment_button_group{
+height:30px;
+width:100px;
+}
 /*            assignment button                  */
 
 .assignment_button{
 display:flex;
 justify-content:space-around;
+margin-top:25px;
 margin-bottom:5px;
 
 }
-.assignment_button_group{
-border: none;
-border-radius:2px;
-height:20px;
-color: #F5F5F5;
+#add_userid_container{
+margin-bottom:5px;
 }
 
-#assignment_delete{
-background-color:#D11A2A;
-}
-#assignment_update{
-background-color:#24a0ed
-}
+

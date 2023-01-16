@@ -7,24 +7,87 @@
 </head>
 <body>
 
-<div>
-    <button>create new assignment</button>
-    <input type="text"/>
+<div id="assignment_manipulation_button" class="manipulation_button">
+    <button value="createAssignment" class="manipulation_button_group button button_normal">create new assignment</button>
+    <input type="text" class="search_assignment_by_id" placeholder="search assignment by id"/>
 
 </div>
 
-<div class="assignments">
+<div>
+    <div id="assignment_display_container" class="assignments">
+        <div th:each="assignment:${assignments}" class="assignment">
+            <h1 th:text="${assignment.title}"></h1>
+            <hr id="assignment_line"/>
+            <p class="assignment_id"> Assignment id:<span th:text="${assignment.assignmentId}"> </span></p>
 
-    <div th:each="assignment:${assignments}" class="assignment">
-        <h1 th:text="${assignment.title}"></h1>
-        <hr id="assignment_line"/>
-        <p> Assignment id:<span th:text="${assignment.assignmentId}"> </span></p>
-        <p th:text="${assignment.startDate}"></p>
-        <p th:text="${assignment.dueDate}"></p>
-        <p th:text="${assignment.type}"></p>
-        <div class="assignment_button">
-            <button type="button" id="assignment_update" class="assignment_button_group">update</button>
-            <button type="button" id="assignment_delete" class="assignment_button_group">delete</button>
+            <p>Start date:<span th:text="${assignment.startDate}"> </span></p>
+            <p>Due date:<span th:text="${assignment.dueDate}"> </span></p>
+            <p>type:<span th:text="${assignment.type}"> </span></p>
+            <div id="add_userid_container" th:attr="custom-value=${assignment.assignmentId}" style="display:none">
+                <label for="add_user_id">user Id</label>
+                <input id="add_user_id" class="add_userid_input" name="userid">
+            </div>
+            <div class="assignment_button">
+                <button type="button" id="assignment_update" th:attr="custom-value=${assignment.assignmentId}"
+                        class="assignment_button_group assignment_button_update button button_normal">update
+                </button>
+                <button class="button assignment_button_adduser"  th:attr="custom-value=${assignment.assignmentId}"
+                        style="background-color:#00FF00" value="1">Add user</button>
+                <button type="button" id="assignment_delete" th:attr="custom-value=${assignment.assignmentId}"
+                        class="assignment_button_group assignment_button_delete button button_danger">delete
+                </button>
+            </div>
+
+        </div>
+    </div>
+    <div id="update_container_flex">
+
+
+        <div id="update_assignment_container">
+            <form class="update_assignment_form" method="post">
+
+                <h1 class="assignment_execution_type" style="text-align:center"></h1>
+                <hr class="assignment_execution_type_hr" >
+                <div class="update_field_container">
+                    <label for="update_assignment_name"> Assignment name</label>
+                    <input type="text" name="assignmentname" id="update_assignment_name"
+                           class="update_assignment_group">
+                </div>
+
+                <div class="update_field_container">
+                    <label for="update_assignment_startdate"> Start date</label>
+                    <input type="date" name="startdate" id="update_assignment_startdate"
+                           class="update_assignment_group">
+                </div>
+                <div class="update_field_container">
+                    <label for="update_assignment_duedate"> due date</label>
+                    <input type="date" name="duedate" id="update_assignment_duedate" class="update_assignment_group">
+                </div>
+                <div class="update_field_container">
+                    <label for="update_assignment_type">Assignment type</label>
+                    <select id="update_assignment_type" name="assignmenttype">
+                        <option value="Home work">Home work</option>
+                        <option value="Mcq">Mcq</option>
+                        <option value="Quiz">Quiz</option>
+
+                    </select>
+                </div>
+                <div id="create_assignment_userid_container" style="display:none" class="update_field_container">
+                    <label for="create_assignment_user">User id</label>
+                    <input type="text" id="create_assignment_user" name="userid">
+                </div>
+                <div class="assignment_button update_field_container" >
+                    <button type="button" id="update_assignment_close"
+                            class="update_assignment_button_group update_assignment_button_close button button_danger">
+                        close
+                    </button>
+                    <button type="button" id="update_assignment_submit"
+                            class="update_assignment_button_group update_assignment_button_submit button button_normal ">
+                        submit
+                    </button>
+                </div>
+            </form>
+
         </div>
     </div>
 </div>

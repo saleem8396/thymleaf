@@ -11,7 +11,7 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public interface AssignmentRepository extends JpaRepository<Assignment,Long> {
+public interface AssignmentRepository extends JpaRepository<Assignment, Long> {
 
     Assignment findByTitleAndType(String title, String type);
 
@@ -32,5 +32,5 @@ public interface AssignmentRepository extends JpaRepository<Assignment,Long> {
                     "values( ?1, ?2)",
             nativeQuery = true
     )
-    void updateUserAssignment(Long assignment_id,Long user_id);
+    void updateUserAssignment(Long assignment_id, Long user_id);
 }
